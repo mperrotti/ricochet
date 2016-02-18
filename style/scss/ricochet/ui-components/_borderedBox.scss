@@ -1,0 +1,19 @@
+//
+// BORDERED BOX
+//
+%borderedBox,
+.borderedBox {
+  border: 6px solid $C_accent;
+  .stripe--photoHero & {
+    // border: 1px solid transparent;
+    // outline: 6px solid transparentize($C_accentTransp, .2);
+    background-clip: content-box;
+    border: 2px solid $C_accent;
+
+    @include atMediaUp(medium) {
+      padding: $space-quarter;
+      border: 1px solid $C_accent;
+    }
+
+  }
+}

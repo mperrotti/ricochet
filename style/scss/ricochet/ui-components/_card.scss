@@ -1,0 +1,19 @@
+/*doc
+---
+title: Cards
+name: uiCard
+category: UI Components
+---
+*/
+%card,
+.card {
+	@include box-sizing(border-box);
+	background: white;
+	background-size: cover;
+	background-clip: border-box;
+	border-radius: 0;
+	display: block;
+  height: 100%;
+  padding: $space $space 0;
+	position: relative;
+}

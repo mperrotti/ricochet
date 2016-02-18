@@ -1,0 +1,15 @@
+// -------------------------
+// Validation errors
+// -------------------------
+.hasError {
+	input,
+	textarea,
+	select {
+		border-color: $C_red;
+	}
+}
+
+.text--error {
+	color: $C_red;
+	margin-top: $space-quarter;
+}

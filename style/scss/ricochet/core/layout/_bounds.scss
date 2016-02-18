@@ -1,0 +1,43 @@
+// -------------------------
+// Bounds
+// -------------------------
+
+$space-bounds: $space * 1.5;
+$sideHeadergutter: $bounds-wide - $bounds;
+
+.bounds {
+	@extend %clearfix;
+	box-sizing: border-box;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $bounds;
+	padding: $space-bounds $space ($space-bounds - $space); // subtract for .chunk at bottom
+	width: 100%;
+}
+
+// side headers
+.bounds--sideHeader {
+	max-width: $bounds;
+}
+@include atMediaUp(large) {
+	.bounds--sideHeader {
+		padding-left: $sideHeadergutter + $space;
+		position: relative;
+	}
+	.bounds-header {
+		position: absolute;
+		top: $space-bounds;
+		left: $space;
+		width: $sideHeadergutter - $space-bounds;
+	}
+}
+
+// TODO: delete this if it's not being used
+.bounds--narrow {
+	max-width: $bounds-narrow;
+}
+//
+
+.bounds--wide{
+	max-width: $bounds-wide;
+}

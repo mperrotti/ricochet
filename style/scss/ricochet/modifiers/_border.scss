@@ -1,0 +1,26 @@
+/*doc
+---
+title: Borders
+name: borderMod
+category: Modifier Classes
+---
+*/
+
+@include _modifier(border, top) {
+  border-top-color: nth($border-standard, 3);
+  border-top-style: nth($border-standard, 2);
+  border-top-width: nth($border-standard, 1);
+  padding-top: $space;
+  .inverted & {
+    border-top-color: nth($border-inverted, 3);
+  }
+}
+
+@include _modifier(border, accentedBtm) {
+  border-bottom: 1px solid $C_accent;
+  padding-bottom: $space-half;
+}
+
+@include _modifier(border, none) {
+	border-width: 0 !important;
+}

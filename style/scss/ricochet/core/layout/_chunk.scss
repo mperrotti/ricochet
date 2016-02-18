@@ -1,0 +1,19 @@
+// -------------------------
+// Chunk
+// -------------------------
+%chunk,
+.chunk {
+	@extend %clearfix;
+	display: block;
+	margin-bottom: $space !important;
+}
+
+.chunk--boundsBreaker {
+  margin-left: -#{$space};
+  margin-right: -#{$space};
+  width: auto !important;
+  @include atMediaUp(medium) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}

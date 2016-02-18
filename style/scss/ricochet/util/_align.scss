@@ -1,0 +1,50 @@
+/*doc
+---
+title: Alignment Utilities
+name: align
+category: Sass Utils | Mixins & Placeholders
+---
+*/
+
+%valignChildren {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(center);
+}
+
+%valignChildren--bottom {
+  @include display(flex);
+  @include flex-direction(column);
+  @include justify-content(flex-end);
+}
+
+// Vertical align middle using positioning instead of flexbox
+// NOTE: Requires parent to be position: relative
+//
+// ala: https://css-tricks.com/centering-css-complete-guide/
+@mixin valignNoFlex {
+  @include transform(translateY(-50%)); // - this was causing issues for some reason
+  position: absolute;
+  top: 50%;
+}
+
+// Horizontal align middle using positioning instead of flexbox
+// NOTE: Requires parent to be position: relative
+//
+// ala: https://css-tricks.com/centering-css-complete-guide/
+@mixin halignNoFlex {
+  @include transform(translateX(-50%)); // - this was causing issues for some reason
+  position: absolute;
+  left: 50%;
+}
+
+// Vert and Horiz align middle using positioning instead of flexbox
+// NOTE: Requires parent to be position: relative
+//
+// ala: https://css-tricks.com/centering-css-complete-guide/
+@mixin fullalignNoFlex {
+  @include transform(translate(-50%, -50%)); // - this was causing issues for some reason
+  left: 50%;
+  position: absolute;
+  top: 50%;
+}

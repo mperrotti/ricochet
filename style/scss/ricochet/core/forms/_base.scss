@@ -1,0 +1,84 @@
+// -------------------------
+// Basic Inputs
+// -------------------------
+
+label {
+	font-size: $font-size-small;
+	font-weight: $W_bold;
+	color: $C_textSecondary;
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+
+%_formFont,
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+%_formDecoration,
+input,
+textarea,
+select {
+	background-color: transparent;
+	border-radius: $defaultRadius;
+	border: 1px solid $C_border;
+	box-shadow: none;
+	box-sizing: border-box;
+	display: block;
+	margin: 0;
+	margin-top: 2px; // just to give descenders a little breathing room
+	max-width: 100%;
+	padding: $space-quarter;
+	width: 100%;
+	&:focus {
+		border-color: $C_blue;
+		box-shadow: none;
+		outline: none;
+	}
+
+	.inverted & {
+		background-color: $C_shadeInverted;
+		border-color: $C_borderInverted;
+		color: $C_textPrimaryInverted;
+	}
+
+	.shaded & {
+		// when on an already gray background, don't get gray-er
+		background-color: white;
+	}
+}
+
+input,
+select {
+	height: ($font-size * $line-height) + $space;
+}
+
+textarea {
+	min-height: (3 * $font-size * $line-height) + $space;
+}
+
+.checkbox,
+.radio {
+	border: none; // iOS Safari shows weird black area around checkbox without this
+	background: transparent; // iOS Safari shows weird black area around checkbox without this
+	-webkit-appearance: none;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+	font-style: normal;
+	color: $C_textTertiary;
+	.inverted &{
+		color: $C_textTertiaryInverted;
+	}
+}

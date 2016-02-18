@@ -1,0 +1,654 @@
+// UNORGANIZED
+//
+// Put it here first.
+// Figure out where it should actually live later
+//
+
+
+// merge to sassquatch
+.card{
+	min-height: 0; // why does card have a min height??
+}
+
+.card--event.event--past {
+	&:before {
+		background: $C_textTertiary;
+	}
+}
+
+.row-item{
+	width: 0;
+}
+.row-item--shrink{
+	width: initial;
+}
+
+.exactlist{
+	text-align:justify;
+}
+@include atMediaDown(small) {
+	.stack-item{
+		padding: 0;
+	}
+}
+
+.exactlist-wrap{
+	display: block;
+	overflow: hidden;
+	margin-right: -8px;
+	height: $media-s;
+	@include atMediaUp(small) {
+		height: $media-m;
+	}
+}
+
+
+// hacking fontaweseome
+.fa-mup-post{
+	background: url(/style/img/newpost2.svg);
+	width: 24px;
+	height: 24px;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.fa-mup-schedule{
+	background: url(/style/img/newmup.svg);
+	width: 24px;
+	height: 24px;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.fa-mup-calendar {
+	background: url(/style/img/calendar_white.svg);
+	width: 24px;
+	height: 24px;
+	background-size: 24px 24px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.momentary{
+	transition-duration: .05s!important;
+}
+
+
+// way to hide something conservatively, good for file inputs
+.input-wrap--hidden{
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+}
+
+
+// what is the form structure
+.list--form{
+	& > li {
+		border-top: none;
+		padding-top: $space-half;
+	}
+}
+
+
+// add this into foundation in _forms.scss
+.launcher {
+	overflow: hidden;
+	padding-right: $media-s;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	background-image: none; // reconsider?
+	cursor: pointer;
+}
+
+// calls to action, floating at small width
+.floatingAction {
+	@include atMediaDown(small) {
+		box-sizing: border-box;
+		padding-left: $space-half;
+		padding-right: $space-half;
+		bottom: 0;
+		left: 0;
+		position: fixed;
+		width: 100%;
+		z-index: 1;
+	}
+}
+
+
+// _misc-ui.scss ?
+.avatar--icon {
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+	background: $C_collectionBGLight;
+	border-radius: 999px;
+	box-sizing: border-box;
+	height: $media-s;
+	font-size: $font-size;
+	line-height: $media-s;
+	padding: $space-half;
+	text-align: center;
+	width: $media-s;
+
+	img {
+		width: 100%;
+	}
+
+	@include atMediaUp(small) {
+		height: $media-m;
+		line-height: $media-m;
+		padding: 12px; // do this better
+		width: $media-m;
+	}
+
+}
+
+/*
+// Attachment
+// a contextual item appended to a primary item
+.attachment{
+
+	background: $C_collectionBGLight;
+	padding: $space-half $space-half 0;
+	display: block;
+
+	.list > li{
+		padding-top: $space-half;
+		&:first-child{
+			padding-top: 0;
+		}
+	}
+	.row-item, .row-item--shrink{
+		padding-left:	 $space-half;
+		&:first-child, .half &:first-child{
+			padding-left: 0;
+		}
+	}
+	.chunk{
+		margin-bottom: $space-half;
+	}
+
+}
+*/
+
+
+// Flex Photos
+// flexbox-based photo-grid
+.flexPhotos{
+	@include display(flex);
+	@include flex-flow(row wrap);
+	padding: 0;
+	.imgFill{
+		@include flex(1 0 50%);
+		@include box-sizing(border-box);
+		border: 2px solid $C_contentBG;
+	}
+}
+
+//
+// Photo modal
+//
+.view--media {
+	.view-body { padding-top: $block; }
+	.media { max-width: 100%; }
+	@include atMediaUp(large) {
+		.stripe .bounds {
+			margin-right: 0;
+			max-width: 320px; //no var for now
+		}
+	}
+}
+
+.stripe--media {
+	background: black;
+	.bounds {
+		@include align-items(center);
+		@include display(flex);
+		@include justify-content(center);
+		height: calc(100% - #{$block});
+		padding: 0;
+		position: relative;
+	}
+
+	@include atMediaUp(large) {
+		position: fixed;
+		height: 100vh;
+		max-width: calc(100vw - 320px); //no var for now
+		width: 100%;
+	}
+
+	&:hover {
+		.media-nav {
+			opacity: 1;
+			&--prev {
+				@include transform(translate($space-half, 50%));
+			}
+
+			&--next {
+				@include transform(translate(-$space-half, 50%));
+			}
+		}
+	}
+}
+
+.media {
+	margin: 0 auto;
+	max-height: 80vh;
+	@include atMediaUp(large) {
+		max-height: 100%;
+	}
+}
+
+.media-nav {
+	@include transition(opacity 50ms ease-in, transform 50ms ease-in);
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+
+	&--prev {
+		@include transform(translate(-$space, 50%));
+		left: 0;
+	}
+	&--next {
+		@include transform(translate($space, 50%));
+		right: 0;
+	}
+}
+
+
+// .view--dimmed is hardly a view at all
+// shouldn't be a type of view
+.shade {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: map-get($zindex-map, "shade");
+	@include transition(all .15s);
+	background: $C_modalShade;
+	opacity: 1;
+	&.off{
+		opacity: 0;
+	}
+}
+
+
+.view.off{
+	display: none;
+}
+
+@include atMediaUp(medium) {
+	.view--splitDetail{
+		.viewHead-back{
+			display: none;
+		}
+	}
+}
+
+//temp fix for 2/12 - fix it for real
+.view-head {
+	@extend %valignChildren;
+}
+
+//temp fix for 2/12 ui mtg - fix it for real
+.buttonList--small li {
+	padding-bottom: $space-half;
+}
+.buttonList--small {
+	margin-bottom: -6px; // so bad
+}
+
+// standard responsive image type or special for groups?
+.group-logo{
+	border-radius: $defaultRadius;
+	border: 1px solid #fff;
+	width: 48px;
+	height: 48px;
+	@include atMediaUp(medium) {
+		width: 72px;
+		height: 72px;
+	}
+}
+
+// Hscroll backfilling with box-shadows
+// Clean up when not tired, or ask Adam D for help
+@function backfillAvatar($n, $media-size, $shadowColor: $C_collectionBGLight) {
+  $boxShadows: null; // empty list to start
+
+	// loop through and generate shadows
+	@for $i from 1 through $n {
+		$new: ($media-size + $space-half) * $i 0 0 $shadowColor;
+		$boxShadows: append($boxShadows, $new, comma);
+	}
+	@return $boxShadows;
+}
+
+.backfiller .avatar {
+	box-shadow: backfillAvatar(10, $media-s);
+	@include atMediaUp(small) {
+		box-shadow: backfillAvatar(15, $media-m);
+	}
+}
+
+// Talk to Adam D about getting row--wrap
+// or something similar into Sassquatch
+.row--wrap {
+	@include flex-wrap(wrap);
+}
+
+// Can anybody think of a better way to do this?
+.cardList {
+	@include display(flex); // make each li go full height
+	& > li {
+		@include display(flex); // make the cards go full height
+	}
+	.card {
+		width: 100%; // fill width of li
+	}
+}
+
+
+// Used for when you want to fill up bounds and
+// not have the items have fluid percentage-based widths
+// Example: hscrolling event cards
+.staticGridList {
+	@include display(flex);
+	& > li {
+		padding-right: $space;
+	}
+	margin-right: -($space);
+}
+
+
+$boundsWidths: (
+	bounds: $bounds,
+	bounds--wide: $bounds-wide
+);
+$glColumns: 1, 2, 3, 4, 5; // after 5, you should probably just use inlineBlockList and standard media sizes, you animal
+
+@each $bName, $bWidth in $boundsWidths {
+	.#{$bName} {
+
+		@each $col in $glColumns {
+			.staticGridList--has#{$col} > li {
+				@include flex(1 0 ($bWidth/$col - $space*($col - 1))); //subtracting space*2 to make up for margin-left
+				max-width: $bWidth/$col - $space; //subtracting space to make up for margin-left
+			}
+		}
+
+		@each $bpName, $bp in (medium: $breakpoint-m, large: $breakpoint-l) {
+			@include atMediaUp($bpName) {
+				@each $col in $glColumns {
+					.at#{str-firstCharToUpper($bpName)}_staticGridList--has#{$col} > li {
+						@include flex(1 0 ($bWidth/$col - $space*($col - 1))); //subtracting space*2 to make up for margin-left
+						max-width: $bWidth/$col - $space; //subtracting space to make up for margin-left
+					}
+				}
+			}
+		}
+
+	}
+}
+
+
+// Polls
+.result-bar {
+	background: $C_collectionBGLight;
+	border-radius: 999px;
+	height: $media-xs;
+	overflow: hidden;
+}
+.result-bar-progress {
+	background: $C_blue;
+	border-radius: 999px;
+	height: 100%;
+	width: 0; //will get set by js
+}
+
+//
+// deal with empty states - need to do this less brute-force
+//
+.feedStripe {
+	min-height: 230px;
+}
+
+// Toggle group overview section
+// Should come up with a standard slide-in animation
+.collapsable {
+	@include transition(max-height 200ms ease-in-out);
+	height: auto;
+	will-change: max-height;
+
+	.bounds {
+		@include transition(transform 200ms ease-in-out);
+	}
+
+	&--shrink {
+		border: none;
+		max-height: 0;
+
+		.bounds {
+			@include transform(translateY(-33%))
+		}
+
+	}
+
+	&--grow {
+		max-height: 700px; // magic number - SHAME! Got an idea for this with js...
+	}
+
+}
+
+// this
+.eventType{
+	border-left-width: 3px;
+	border-left-style: solid;
+	padding-left: $space;
+}
+.eventType--yes{ border-left-color: $C_red; }
+.eventType--group{ border-left-color: transparentize($C_red, .8); }
+.eventType--suggestion{ border-left-color: transparent; }
+
+// RESPONSIVE CALENDAR
+.calendarControl {
+	min-width: $media-xs;
+}
+
+.calendar-day {
+	border-bottom: 1px solid $C_border;
+	box-sizing: border-box;
+	padding: $space-half;
+	width: percentage(1/7);
+}
+
+.calendar-dates{
+	@include display(flex);
+	@include flex-flow(row wrap);
+}
+
+.calendar-date{
+	border-bottom: none;
+	min-height: $media-l;
+}
+
+.calendar-date--hasEvents{
+	background: $C_collectionBGLight;
+}
+
+.calendar-event{
+	// plain event styles
+	font-size: $font-size-small;
+	margin-bottom: 2px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+	// as dots at mobile
+	background: $C_red;
+	border-radius: 999px;
+	height: $space-quarter;
+	margin-right: 2px;
+	padding: 0;
+	pointer-events: none;
+	width: $space-quarter;
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+@include atMediaUp(medium) {
+	.calendar-day {
+		border-bottom: none;
+	}
+	.calendar-date{
+		min-height: $media-xl;
+	}
+	.calendar-date--hasEvents{
+		background: transparent;
+	}
+	.calendar-event{
+		background: $C_collectionBGLight;
+		border-radius: $defaultRadius;
+		height: auto;
+		padding: 0 2px;
+		pointer-events: auto;
+		width: auto;
+	}
+}
+
+/*
+// view-head SEARCH
+// THIS IS KIND OF GROSS
+.view-head--search{
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: $C_accent;
+}
+.view--searchMode{
+	.view-head--search{
+		display: block;
+	}
+	.viewBody{
+		display: none;
+	}
+}
+
+.view--splitListList{
+	display: none!important;
+}
+*/
+
+// "invisible"" start/end markers for loading more list data
+.marker{
+	height: 10px;
+	//background: green;
+}
+
+//
+// No photo in hero
+//
+.photoHero--noPhoto {
+	&:before {
+		display: none;
+	}
+}
+
+//
+// STUFF THAT SHOULD PROBABLY GO INTO SASSQUATCH
+//
+
+.card {
+	min-height: 0;
+}
+
+.row-item {
+	width: 0;
+}
+
+.row-item--shrink {
+	width: initial;
+}
+
+// stack fixes
+@include atMediaUp(medium) {
+	.atMedium_stack--spread .stack-item {
+		@include flex-basis(auto);
+	}
+}
+
+@include atMediaUp(large) {
+	.atLarge_stack--spread .stack-item {
+		@include flex-basis(auto);
+	}
+}
+
+.dialog {
+	@include modal-dialog;
+	z-index: map-get($zindex-map, "modal");
+	img {
+		max-width: 100%;
+	}
+	@include atMediaDown(small){
+		margin-left: 0;
+		min-height: 0;
+		left: $space;
+		right: $space;
+		width: auto;
+	}
+}
+
+.hasSysMsg {
+	.view {
+		position: relative;
+	}
+	.view-head {
+		position: absolute;
+	}
+	.view-head--sticky {
+		position: fixed;
+	}
+}
+
+.sysmsg {
+	position: relative;
+}
+
+.sysmsg-dismiss {
+	position: absolute;
+	right: $space;
+	top: $space;
+}
+
+.sysmsg-msg {
+	margin-right: $space;
+}
+
+//
+// STUFF THAT'S PROBABLY CUSTOM
+//
+.group-logo-container {
+	position: relative;
+}
+
+.group-logo-edit {
+	position: absolute;
+	top: 90%;
+	width: 100%;
+	z-index: 1;
+}
+
+.changeBG {
+	position: absolute;
+	top: 16px;
+	z-index: 1;
+	left: 50%;
+	transform: translateX(-50%);
+}

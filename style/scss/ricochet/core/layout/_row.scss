@@ -1,0 +1,102 @@
+// -------------------------
+// Row
+// -------------------------
+.row {
+	@include display(flex);
+	@include flex-wrap(nowrap);
+	@include flex-direction(row);
+	@include justify-content(flex-start);
+	@include align-items(flex);
+}
+.row-item {
+	@include flex-grow(1);
+	@include flex-basis(0);
+	padding-left: $space;
+	width: auto;
+	min-width: 0;
+	&:first-child {
+		padding-left: 0;
+	}
+}
+
+
+// -------------------------
+// Row
+// -------------------------
+.row--noGutters .row-item {
+	padding: 0;
+}
+.row--reverse {
+	@include flex-direction(row-reverse);
+}
+.row--wrap {
+	@include flex-wrap(wrap);
+}
+@each $jName, $jprop in $flexJustifyMap {
+	.row--#{$jName} {
+		@include justify-content($jprop);
+	}
+}
+@include _bpModifier('row', 'reverse') {
+	@include flex-direction(row-reverse);
+	.stack-item, .row-item {
+		padding-left: 0;
+		padding-right: $space;
+		// &:last-child {
+		// 	padding-right: 0;
+		// }
+	}
+}
+
+/*doc
+---
+title: Row Item variants
+name: flexrowItemVars
+parent: flexRow
+---
+
+A class of `.row-item` is __required__ on row items.
+The following classes are optional variants:
+
+Class                   | Description
+----------------------- | -------------------------------
+`.row-item--shrink`     | Item shrinks to fit content
+`.row-item--alignMiddle`| Vertically aligns content to middle
+*/
+// .row-item--shrink {
+// 	@include flex-grow(0);
+// 	@include flex-shrink(1);
+// 	width: initial;
+// }
+// .row-item--alignMiddle {
+// 	@include align-self(center);
+// }
+.row-item--shrink {
+	@include flex-grow(0);
+	@include flex-shrink(0);
+	@include flex-basis(auto);
+	width: initial;
+}
+.row-item--alignMiddle {
+	@include align-self(center);
+}
+
+// LT IE10 fallback
+.ieRoot_lt_IE10 {
+	.row {
+		@include box-sizing(border-box);
+		display: table;
+		table-layout: auto;
+		width: 100%;
+	}
+	.row-item {
+		display: table-cell;
+		width: 100%;
+	}
+	.row-item--shrink {
+		width: auto;
+	}
+	.row-item--alignMiddle {
+		vertical-align: middle;
+	}
+}

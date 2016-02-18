@@ -1,0 +1,8 @@
+.logo {
+  height: 96px; // TODO: create a var
+
+  @include atMediaUp(medium) {
+    height: 144px; // TODO: create a var
+  }
+
+}

@@ -1,0 +1,11 @@
+.DS_Store
+.sass-cache
+*.swp
+*.swo
+*.css.map
+*.lock
+__originalImgs/
+perch/
+bower_components/
+node_modules/
+!README*

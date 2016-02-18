@@ -1,0 +1,117 @@
+$btn-color-map: (
+  default: transparent,
+  primary: $C_link,
+  contrast: $C_contentBG
+) !default;
+
+%buttonBase {
+  @include box-sizing(border-box);
+  @include transition(background .15s);
+  background: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -webkit-border-radius:$defaultRadius;
+  border-radius:$defaultRadius;
+  border-radius: $defaultRadius;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size;
+  margin: 0;
+  padding: $space-half $space;
+  text-align: center;
+  &:focus {
+    outline: 0;
+  }
+}
+
+%button,
+.button {
+  @extend %buttonBase;
+  color: map-get($btn-color-map, "primary");
+  &:hover,
+  &:active,
+  &:focus {
+    background: transparentize(map-get($btn-color-map, "primary"), .8);
+    border-color: transparent;
+  }
+
+}
+
+%button--primary,
+.button--primary {
+  @extend %button--borderless;
+  background: map-get($btn-color-map, "primary");
+  color: $C_textPrimaryInverted;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: call(nth($btn-hover, 1), map-get($btn-color-map, "primary"), nth($btn-hover, 2));
+  }
+
+  &.button--contrast { // TODO (mikep): look into ways to do this without chaining classes
+    background: map-get($btn-color-map, "contrast");
+    color: $C_textPrimary;
+    &:hover,
+    &:active,
+    &:focus {
+      background: transparentize(map-get($btn-color-map, "contrast"), .1);
+    }
+  }
+
+}
+
+%button--contrast,
+.button--contrast {
+  background: map-get($btn-color-map, "contrast");;
+  border: 0;
+  color: $C_textPrimary;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: transparentize(map-get($btn-color-map, "contrast"), .1);
+    border: 0;
+  }
+}
+
+//
+// Button border modifiers
+//
+%button--bordered {
+  border: $btn-border;
+  color: map-get($btn-color-map, "primary");
+  font-weight: $W_normal;
+  &:hover,
+  &:active,
+  &:focus {
+    background: transparentize(map-get($btn-color-map, "primary"), .8);
+  }
+}
+
+%button--borderless,
+.button--borderless {
+  border: none;
+
+  &:hover,
+  &:active,
+  &:focus {
+    border: none;
+  }
+
+}
+
+//
+// Button size modifiers
+//
+%button--small,
+.button--small {
+  font-size: $font-size-small;
+  padding: $space-quarter $space-half;
+}
+
+%button--fullWidth,
+.button--fullWidth {
+  display: block;
+  width: 100%;
+}

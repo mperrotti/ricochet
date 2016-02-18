@@ -1,0 +1,44 @@
+// Ricochet color pallette
+$C_orange: #F78E1E;
+$C_orangeTransp: transparentize(#ED7700, .2);
+$C_blue: #2C479E;
+$C_red: red; //TODO: make this a nice red
+
+// Text colors ()
+$C_textPrimary: rgba(0,0,0,0.87);
+@mixin color_textPrimary($style: 'color') { #{$style}: lighten( rgb(0,0,0), 13%); #{$style}: $C_textPrimary; }
+$C_textSecondary: rgba(0,0,0,0.54);
+@mixin color_textSecondary($style: 'color') { #{$style}: lighten( rgb(0,0,0), 46%); #{$style}: $C_textSecondary; }
+$C_textTertiary: rgba(0,0,0,0.26);
+@mixin color_textTertiary($style: 'color') { #{$style}: lighten( rgb(0,0,0), 74%); #{$style}: $C_textTertiary; }
+$C_textPrimaryInverted: rgb(255,255,255);
+$C_textSecondaryInverted: rgba(255,255,255,0.7);
+@mixin color_textSecondaryInverted($style: 'color') { #{$style}: darken( rgb(255,255,255), 30%); #{$style}: $C_textSecondaryInverted; }
+$C_textTertiaryInverted: rgba(255,255,255,0.3);
+@mixin color_textTertiaryInverted($style: 'color') { #{$style}: darken( rgb(255,255,255), 70%); #{$style}: $C_textTertiaryInverted; }
+
+// UI Colors ()
+$C_accent: $C_orange;
+$C_accentTransp: $C_orangeTransp;
+$C_accentSecondary: $C_blue;
+$C_link: $C_blue;
+$C_border: rgba(0,0,0,0.12);
+@mixin color_border($style: 'color') { #{$style}: lighten( rgb(0,0,0), 88%); #{$style}: $C_border; }
+$C_borderInverted: rgba(255,255,255,0.2);
+@mixin color_borderInverted($style: 'color') { #{$style}: darken( rgb(255,255,255), 80%); #{$style}: $C_borderInverted; }
+$C_overlayPressed: rgba(0,0,0,0.1);
+@mixin color_overlayPressed($style: 'color') { #{$style}: lighten( rgb(0,0,0), 90%); #{$style}: $C_overlayPressed; }
+$C_modalShade: rgba(0,0,0,0.75);
+@mixin color_modalShade($style: 'color') { #{$style}: lighten( rgb(0,0,0), 25%); #{$style}: $C_modalShade; }
+$C_shade: rgba(0,0,0,0.05);
+@mixin color_shade($style: 'color') { #{$style}: lighten( rgb(0,0,0), 95%); #{$style}: $C_shade; }
+$C_shadeInverted: rgba(255,255,255,0.1);
+@mixin color_shadeInverted($style: 'color') { #{$style}: darken( rgb(255,255,255), 90%); #{$style}: $C_shadeInverted; }
+$C_textProtection: rgba(0,0,0,0.05);
+@mixin color_textProtection($style: 'color') { #{$style}: lighten( rgb(0,0,0), 95%); #{$style}: $C_textProtection; }
+
+// Background colors ()
+$C_contentBG: #f8f8f1;
+$C_contentBGInverted: #222;
+$C_collectionBGDark: darken($C_contentBG, 10%);
+$C_collectionBGLight: darken($C_contentBG, 5%);

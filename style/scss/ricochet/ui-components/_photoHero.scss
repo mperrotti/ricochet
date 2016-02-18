@@ -1,0 +1,91 @@
+// PHOTO HERO PHOTO
+.photoHero-photo {
+  @extend %_heroStripe;
+  background-size: cover;
+  max-height: 70vh;
+}
+
+.photoHero-photo--hasOverlap {
+  &:after {
+    background: rgba(0,0,0,0.35); //TODO: make this a var
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+  }
+  @include atMediaUp(medium) {
+    &:after {
+      display: none;
+    }
+  }
+}
+
+// OVERLAP
+.heroPhotoOverlap {
+  @extend %borderedBox;
+  z-index: 2;
+}
+
+.heroPhotoOverlap--left {
+  @include atMediaUp(medium) {
+    @include valignNoFlex;
+    z-index: map-get($zindex-map, 'modal');
+    left: $space-half;
+  }
+  @include atMediaUp(large) {
+    left: $space-double;
+  }
+}
+
+.heroPhotoOverlap--right {
+  @include atMediaUp(medium) {
+    @include valignNoFlex;
+    z-index: map-get($zindex-map, 'modal');
+    right: $space-half;
+  }
+  @include atMediaUp(large) {
+    right: $space-double;
+  }
+}
+
+.heroPhotoOverlap--center {
+  @include fullalignNoFlex;
+}
+
+.heroPhotoOverlap-box {
+  @extend %card;
+  background: transparent;
+  color: $C_textPrimaryInverted;
+  // font-weight: $W_bold;
+  min-width: 300px; //TODO: make this not a magic number
+  text-shadow: 1px 1px 6px $C_textSecondary;
+  .button {
+    // font-weight: $W_normal;
+    text-shadow: none;
+  }
+
+  @include atMediaUp(medium) {
+    background: white;
+    color: $C_textPrimary;
+    // font-weight: $W_normal;
+    text-shadow: none;
+  }
+}
+
+// INFO CARD
+// .photoAccentBox {
+//   @extend .inverted;
+//   background: $C_accentTransp;
+//   border: 1px solid transparent; // this prevents the bottom margin on the last chunk from overflowing
+//   margin-left: $space;
+//   margin-right: $space;
+//   @include transform(translateY(-#{$space}));
+
+//   @include atMediaUp(medium) {
+//     background: $C_accentTransp;
+//   }
+// }

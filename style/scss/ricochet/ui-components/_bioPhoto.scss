@@ -1,0 +1,23 @@
+.bio {
+  position: relative;
+}
+
+//TODO: kill this effect for browsers that don't support transforms
+.bio-photo {
+  @include transition(opacity 350ms ease-in-out);
+  background: $C_contentBG;
+  max-width: 300px; //TODO: make this not a magic number
+  width: 100%;
+  opacity: 1;
+  position: relative; // makes this listen to z-index
+  z-index: 1;
+  &:hover {
+    opacity: 0;
+  }
+}
+
+.bio-photo--lulz {
+  @include halignNoFlex;
+  top: 0;
+  z-index: 0;
+}

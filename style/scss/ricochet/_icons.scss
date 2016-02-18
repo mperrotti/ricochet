@@ -1,0 +1,99 @@
+.icon {
+  height: $media-s;
+  max-width: $media-s;
+}
+
+.icon--s {
+  height: $media-xs;
+  max-width: $media-xs;
+}
+
+.icon--l {
+  height: $media-m;
+  max-width: $media-m;
+}
+
+.icon--xl {
+  height: $media-xl;
+  max-width: $media-xl;
+}
+
+//
+// CSS background SVGs
+//
+.bgIcon {
+  background-repeat: no-repeat;
+  background-position: 0;
+  display: block;
+  background-size: $media-s;
+  height: $media-s;
+  width: $media-s;
+
+  //make text invisible
+  color: transparent;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+.bgIcon--s {
+  background-size: $media-xs;
+  height: $media-xs;
+  width: $media-xs;
+}
+
+.bgIcon--l {
+  background-size: $media-m;
+  height: $media-m;
+  width: $media-m;
+}
+
+.bgIcon--xl {
+  background-size: $media-xl;
+  height: $media-xl;
+  width: $media-xl;
+}
+
+//social
+.bgIcon--facebook {
+  background-image: url('img/facebook.svg');
+}
+
+.bgIcon--twitter {
+  background-image: url('img/twitter.svg');
+}
+
+.bgIcon--instagram {
+  background-image: url('img/instagram.svg');
+}
+
+// ------------------
+// PNG fallbacks
+// ------------------
+.no-svg {
+  //contact form
+  // .icon_mail {
+  //   @extend .bgIcon;
+  //   @extend .bgIcon--s;
+  //   background-image: url('img/mail.png');
+  // }
+
+  // .icon_mobile {
+  //   @extend .bgIcon;
+  //   @extend .bgIcon--s;
+  //   background-image: url('img/mobile.png');
+  // }
+
+  //social
+  .bgIcon--facebook {
+    background-image: url('img/facebook.png');
+  }
+
+  .bgIcon--twitter {
+    background-image: url('img/twitter.png');
+  }
+
+  .bgIcon--instagram {
+    background-image: url('img/instagram.png');
+  }
+}

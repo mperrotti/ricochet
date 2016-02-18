@@ -1,0 +1,19 @@
+{
+  "name": "salon-ricochet",
+  "version": "0.0.1",
+  "description": "Salon Ricochet website",
+  "main": [
+    "**/*."
+  ],
+  "dependencies": {
+    "sassquatch2": "git@github.com:meetup/sassquatch2.git#develop",
+    "bourbon": "4.1.0",
+    "jquery": null,
+    "lazyloadxt": null,
+    "ractive": null,
+    "ractive-load": null,
+    "swiper": null,
+    "jquery-waypoints": "~2",
+    "css-modal": "~1.3.0"
+  }
+}

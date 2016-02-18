@@ -1,0 +1,25 @@
+.mainNav {
+  background: $C_contentBG;
+  padding: $space-quarter;
+
+  li {
+    padding: 0 $space-half;
+
+    @include atMediaUp(medium) {
+      padding: 0 $space;
+    }
+  }
+
+  &-logo {
+    height: 80px; // TODO: create a var
+  }
+
+  @include atMediaUp(medium) {
+    padding: 0 $space;
+
+    &-logo {
+      height: 144px; // TODO: create a var
+    }
+
+  }
+}

@@ -1,0 +1,164 @@
+// ---------------------------
+// BREAKPOINTS
+// ---------------------------
+  $breakpoint-s  : 440px;
+  $breakpoint-m  : 640px;
+  $breakpoint-l  : 840px;
+  $breakpoint-xl : 1024px;
+
+  $breakpoint-map: (
+    s: $breakpoint-s,
+    m: $breakpoint-m,
+    l: $breakpoint-l,
+    xl: $breakpoint-xl,
+  );
+
+// ---------------------------
+// BOUNDS
+// ---------------------------
+  $bounds-wide   : 1200px;
+  $bounds-narrow : $breakpoint-l; //TODO: delete this if it's not being used
+  $bounds        : 1000px;
+
+// ---------------------------
+// TYPOGRAPHY
+// ---------------------------
+  $fontPrimary   : 'Source Sans Pro', Roboto, Helvetica, Arial, sans-serif;
+  $fontSecondary : 'Domine', Georgia, Times New Roman, Times, serif;
+
+  // Sizes
+  $font-size-small   : 13px;
+  $font-size         : 16px;
+  $font-size-large   : 21px;
+  $font-size-xlarge  : 32px;
+  // $font-size-display : 56px;
+
+  // Weights
+  // $W_light  : 300;
+  $W_normal : 400;
+  $W_bold   : 700;
+
+  // Leading
+  $line-height       : 1.5;
+  $line-height-small : 1.5;
+
+
+// ---------------------------
+// METRICS
+// ---------------------------
+
+  // Spacing
+  // ---------------------------------------
+  // Double-stranded loosely based on a
+  // perfect-fifths scale.
+  // ----------------------------------------
+  // $block   : 48px @ 1:1.5
+  // $space   : 16px @ 1:1.5
+  // ---------------------------------------
+  //
+  $block           : 48px;
+  $block-2         : 72px;
+  $block-3         : 108px;
+  $block-4         : 160px;
+  $block-5         : 240px;
+  $block-6         : 384px;
+  $block-7         : 544px;
+
+  $space           : 24px;
+  $space-2         : 24px;
+  $space-3         : 36px;
+  $space-4         : 56px;
+  $space-5         : 80px;
+  $space-6         : 120px;
+  $space-7         : 184px;
+  $space-8         : 280px;
+
+
+  $space-and-half  : $space*1.5;
+  $space-double    : $space*2;
+  $space-half      : $space/2;
+  $space-quarter   : $space/4;
+
+
+  // Form size defaults
+  $form-min-height : $block;
+  $form-min-width  : $block;
+  $form-max-width  : 550px; // Come up with something smarter for this
+
+  $modal-width     : $breakpoint-s;
+
+  $defaultRadius   : 2px;
+
+  $pointer_size    : 12px;
+
+  // Media sizes
+  // ---------------------------------------
+  $media-xs : $space-2; // 24px
+  $media-s  : $space-3; // 36px
+  $media-m  : $block;   // 48px
+  $media-l  : $block-2; // 72px
+  $media-xl : $block-4; // 160px
+
+  $media-map: (
+    xs: $media-xs,
+    s: $media-s,
+    m: $media-m,
+    l: $media-l,
+    xl: $media-xl
+  );
+
+  // ---------------------------
+  // Z-INDEX
+  // ---------------------------
+    $zindex-map: (
+      main: 0,
+      main-header: 1,
+      shade: 2,
+      modal: 3,
+      modal-header: 4,
+      momentary: 5
+    );
+
+// ---------------------------
+// BUTTONS
+// ---------------------------
+  $btn-hover: lighten 10% !default;
+  $btn-hover-opacity: opacify .1 !default;
+  $btn-border: 1px solid !default;
+
+  // button variants e.g.: <button class="button button--primary"></button>
+
+
+// ---------------------------
+// BORDER
+// ---------------------------
+  $border-standard: 1px solid $C_border;
+  $border-inverted: 1px solid $C_borderInverted;
+
+
+// ---------------------------
+// DISPLAY
+// ---------------------------
+  $display-values: (
+    none,
+    block,
+    inline,
+    inline-block
+  );
+
+
+// ---------------------------
+// FLEXBOX
+// ---------------------------
+  $flexJustifyMap: ( // omits flex-start (default prop)
+    "flexEnd": flex-end,
+    "center": center,
+    "spaceBetween": space-between,
+    "spaceAround": space-around
+  );
+
+
+// ---------------------------
+// VIEW
+// ---------------------------
+  $view-minWidth: 320px;

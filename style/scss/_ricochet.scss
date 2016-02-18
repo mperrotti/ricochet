@@ -1,0 +1,20 @@
+// TODO: Try and make this file empty
+.stackCustom--priceList > .stack-item {
+  // TODO: write a fallback for non-flexbox browsers
+  @include atMediaUp(medium) {
+    @include flex-basis(42%);
+  }
+
+}
+//
+
+.stack .ricochetBioPhotoContainer {
+  @include flex-basis(auto);
+  @include atMediaUp(medium) {
+    @include flex-basis(33%);
+  }
+}
+
+.footerNav > div {
+  padding-right: $space;
+}

@@ -1,0 +1,58 @@
+// -------------------------
+// Stripe
+// -------------------------
+%stripe,
+.stripe {
+  background-color: $C_contentBG;
+  border-top: none;
+  margin-bottom: 0;
+  overflow: hidden;
+  padding: $space 0;
+}
+
+// .stripe--light {
+//   @extend %stripe;
+//   background: white;
+// }
+
+.stripe--collection {
+  @extend %stripe;
+  background-color: $C_collectionBGLight;
+}
+
+.stripe--inverted {
+  @extend %stripe;
+  background-color: $C_contentBGInverted;
+}
+
+//
+// HERO STRIPES
+//
+%_heroStripe {
+  @extend %stripe;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  // overflow: visible;
+  padding: 0;
+  position: relative;
+
+  // @include atMediaUp(medium) {
+  //   padding: $space;
+  // }
+}
+
+.stripe--hero {
+	@extend %_heroStripe;
+}
+
+// PHOTO HERO STRIPE
+.stripe--photoHero {
+  @extend %_heroStripe;
+
+  // TODO: Kill textProtectionScrim in stripe--photoHero
+  &:before {   // kills text protection scrim
+    display: none;
+  }
+}
+

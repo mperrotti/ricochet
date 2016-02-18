@@ -1,0 +1,281 @@
+//
+// NOT CORE YET
+// Things that could be core one day, but are definitely not going in to v1
+// 
+
+// this may not be as relevant if we end up using svg icons
+.view-head .fa{
+	font-size: 18px;
+}
+
+.featuredMup {
+	color: rgb(240, 203, 79); //needs a named color
+}
+
+
+
+// ------------ Color swatches ------------
+// these can be cards and avatars
+
+.color {
+	border-radius: $defaultRadius;
+	text-align: center;
+	padding: $space;
+	min-height: 160px;
+	&.inverted {
+		background: $C-contentBGInverted;
+	}
+}
+
+$colorsList: (accent: $C-accent, link: $C-link, green: $C-green, border: $C-border, borderInverted: $C-borderInverted, textProtection: $C-textProtection, overlayPressed: $C-overlayPressed, shade: $C-shade, shadeInverted: $C-shadeInverted, textPrimary: $C-textPrimary, textSecondary: $C-textSecondary, textTertiary: $C-textTertiary, textPrimaryInverted: $C-textPrimaryInverted, textSecondaryInverted: $C-textSecondaryInverted, textTertiaryInverted: $C-textTertiaryInverted, contentBG: $C-contentBG, contentBGInverted: $C-contentBGInverted, collectionBGLight: $C-collectionBGLight, collectionBGDark: $C-collectionBGDark, blue: #68A5D9, yellow: #F0CB4F, purple: #7160AA, brown: #713F19, dkGrey: #353E48);
+
+.swatch {
+	background: #f7f7f7;
+	// get rid of this
+	border-radius: 999px;
+	height: $media-m;
+	margin: $space auto;
+	width: $media-m;
+	@each $key, $value in $colorsList {
+		&--#{$key} {
+			background-color: $value;
+		}
+	}
+	&--contentBG {
+		border: 1px solid $C-border;
+	}
+}
+
+
+
+
+
+// ------------ portrait header ------
+// terribly named
+.portrait-blur {
+	background-size: cover;
+	-webkit-filter: blur(100px) saturate(200%);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-position: center;
+	clip: rect(0, 100%, 100%, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+
+
+/*
+// experimental font-size bump
+// there does seem to be some precedent for it
+// size classes in ios, etc
+@include atMediaUp(large) {
+	body{
+		&, h2, h3, h4, h5, h6, .button{
+			font-size: 18px;
+		}
+		.text--small, .text--caption, .button--small{
+			font-size: 15px;
+		}
+	}
+}
+*/
+
+
+
+
+// ------------ CHAT ------------
+@mixin chatBubbleOptions($color, $direction, $tail) {
+		margin-#{$direction}: 0;
+		text-align: #{$direction};
+		.content {
+				float: #{$direction};
+				background: $color;
+				&:last-child {
+						border-bottom-#{$direction}-radius: 0;
+						&:after {
+								#{$direction}: -$tail;
+								border-bottom-color: $color;
+						}
+				}
+		}
+}
+
+.chatList {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		& > li {
+				max-width: 70%;
+				margin: 0 auto $space;
+				.content {
+						clear: both;
+						border-radius: 10px;
+						padding: $space-half;
+						position: relative;
+						margin-bottom: $space-half;
+						&:last-child {
+								&:after {
+										content: '';
+										display: block;
+										width: 0;
+										height: 0;
+										border: 5px solid transparent;
+										position: absolute;
+										bottom: 0;
+								}
+						}
+				}
+				&.you {
+						@include chatBubbleOptions(#eee, "left", 5px);
+						.ffbox-fix {
+								padding-right: $space-half;
+								vertical-align: bottom;
+						}
+				}
+				&.me {
+						@include chatBubbleOptions($C-blue, "right", 5px);
+				}
+		}
+}
+
+
+
+
+/*
+ *Adds pointers to any box.
+ *
+ *Use additional classes of .top-left, .top-right, .bottom-left, .bottom-right
+ *_TODO: rewrite with args_
+ *
+ *```
+ *@mixin pointers-for-box($size, $background, $border)
+ *```
+ */
+@mixin pointers-for-box($size, $background, $border){
+    &:before, &:after{
+        position: absolute;
+    }
+    $vertical: 'top', 'bottom';
+    $horizontal: 'left', 'right';
+    $directions: (top: 'n', bottom: 's');
+    @each $v in $vertical{
+        @each $h in $horizontal{
+            &.#{$v}-#{$h}{
+                @if $border{
+                    &:before{
+                        #{$v}: -($size + 1px);
+                        #{$h}: -1px;
+                        @include triangle( map-get($directions, $v), $border, $size+1);
+                        @include pseudoDisplay(block);
+                    }
+                    &:after{
+                        #{$v}: -($size);
+                        #{$h}: 0;
+                        @include triangle(map-get($directions, $v), $background, $size);
+                        @include pseudoDisplay(block);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+/*
+
+// TODO: docContent or docSection?
+.docContent {
+	padding: $space;
+}
+
+.docSection {
+	border-top: 1px solid $C_border;
+	border-bottom: 1px solid transparent; 
+	padding: $space $space 0 $space;
+	&:first-child{
+		border-top: none;
+	}
+	.inverted & {
+		border-top-color: $C_borderInverted;
+	}
+	.contentBounds > & { // don't pad sides when directly inside a contentBounds
+		padding: $space 0 0 0;
+	}
+}
+
+.chunkList--form{
+	& > li{
+		border-top: none;
+		.chunkList-chunk{
+			height: auto;
+		}
+	}
+  & + .caption-text {
+    margin-top: $space-half;
+  }
+}
+
+// HEAD
+// the navigationbar/actionbar at the top of the view
+// contains an escape action, a title, and screen actions
+
+.viewHead{
+	// TODO: change bounds variants to view-head-[thing]
+	// which search mode
+	.bounds--standard{ display: block; }
+	.bounds--search{ display: none; }
+	&.viewHead--search{
+		.bounds--standard{ display: none; }
+		.bounds--search{ display: block; }
+	}
+
+	.bounds{
+		padding: 0 $space;
+	}
+
+	.bounds, .ffbox{
+		height: 100%; // for vertical-alignment
+	}
+
+	.viewHead-back {
+	  width: 24px;
+	}
+
+	.viewHead-actions {
+	  // ------------------------
+	  // Need to kill padding given
+	  // by .ffbox children in .view-head
+	  // because each icon has padding attached to it
+	  padding: 0 !important;
+	  white-space: nowrap;
+	a {
+	  box-sizing: border-box;
+	  display: inline-block;
+	  padding: 0 $space-half;
+
+	  // Is this right?
+	  &:last-child {
+		padding-right: 0;
+	  }
+	  }
+	}
+
+	// TRANSPARENT HEAD WHEN SCREEN HAS A HERO STRIPE TO SHOW
+	&.has-hero{
+		background: transparent;
+		border-bottom: none;
+		color: $C_textPrimaryInverted;
+		h1{
+			opacity: 0;
+		}
+	}
+	&.has-hero.has-hero-photo{
+		@include background(linear-gradient(transparentize(#000000, .4), transparentize(#000000, 1) ));
+	}
+}
+*/
+

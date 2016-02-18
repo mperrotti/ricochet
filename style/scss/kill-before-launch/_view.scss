@@ -1,0 +1,20 @@
+// VIEW
+// adds a few classes for prototype interface
+
+.view--split,
+.view--detail {
+	@include atMediaUp(medium) {
+		&.off {
+			display: none;
+		}
+	}
+}
+
+.view--dimmed {
+	&.off {
+		opacity: 0;
+		.view--dimmed-close {
+			opacity: 0;
+		}
+	}
+}

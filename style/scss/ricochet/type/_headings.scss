@@ -1,0 +1,101 @@
+//
+// HEADINGS
+//
+
+// H1
+// TODO: Decide what the h1 of the page is
+h1 {
+}
+
+// H2
+// Used to divide sections
+h2 {
+	@extend %text--xlarge;
+	text-transform: none;
+}
+
+h3, h4 {
+	font-weight: $W_bold;
+}
+
+h1, h2, h3 {
+	font-family: $fontSecondary;
+}
+
+h5, h6 {
+	font-weight: $W_normal;
+}
+
+// H3 - H6
+// We're sticking to limited visual hierarchy
+h3, h4, h5, h6 {
+	color: $C_textPrimary;
+	font-size: $font-size;
+	line-height: $line-height;
+	.inverted & {
+		color: $C_textPrimaryInverted;
+	}
+}
+
+%text--large,
+.text--large {
+	font-size: $font-size;
+	line-height: $line-height;
+	@include atMediaUp(medium) {
+		font-size: $font-size-large;
+	}
+}
+
+%text--xlarge,
+.text--xlarge {
+	font-size: $font-size-large;
+	font-weight: $W_normal;
+	line-height: $line-height;
+	@include atMediaUp(medium) {
+		font-size: $font-size-xlarge;
+	}
+}
+
+%text--uppercase,
+.text--uppercase {
+	@extend %text--large;
+	font-family: $fontPrimary;
+	font-weight: $W_bold;
+	text-transform: uppercase;
+}
+
+%heading--boldUnderline,
+.heading--boldUnderline {
+	border-bottom: 3px solid;
+	display: inline-block;
+}
+
+%heading--borderedBtm,
+.heading--borderedBtm {
+	padding-bottom: $space-half;
+	position: relative;
+	&:after {
+		background: $C_accent;
+		bottom: 0;
+		content: '';
+		display: block;
+		height: 2px;
+		left: 0;
+		position: absolute;
+		width: 2em;
+	}
+	&.align--center,
+	.align--center & {
+		&:after {
+			@include halignNoFlex;
+		}
+	}
+
+	// Probably won't need this, but uncomment if it comes up
+	//
+	// &.align--right,
+	// .align--right & {
+	// 	left: auto;
+	// 	right: 0;
+	// }
+}

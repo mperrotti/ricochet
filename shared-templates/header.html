@@ -1,0 +1,75 @@
+<div class="row inverted">
+
+	{{#if platform == 'web'}}
+		<!-- web has logo by default, arrow in stepped flow -->
+
+		{{#if isStep}}
+			<div class="row-item row-item--shrink row-item--alignMiddle viewHead-back" on-click="back">
+				<i class="fa fa-arrow-left"></i>
+			</div>
+		{{else}}
+			<a href="http://meetup.com/" class="row-item row-item--shrink row-item--alignMiddle">
+				<img src="style/img/logo.svg" width="35" height="24" />
+			</a>
+		{{/if}}
+
+	{{else}}
+
+		<!-- native has arrows by default -->
+		{{#if !isRoot}}
+			<div class="row-item row-item--shrink row-item--alignMiddle viewHead-back" on-click="back">
+				<i class="fa fa-arrow-left"></i>
+			</div>
+		{{/if}}
+
+	{{/if}}
+
+
+	<div class="row-item row-item--alignMiddle viewHead-heading">
+		<h1 class="wrap--singleLine--truncate">{{title}}</h1>
+		{{#subtitle}}
+			{{#subtitleLink}}
+				<a href="{{subtitleLink}}" class="text--caption wrap--singleLine--truncate">{{subtitle}}</a>
+			{{/subtitleLink}}
+			{{^subtitleLink}}
+				<p class="text--caption wrap--singleLine--truncate">{{subtitle}}</p>
+			{{/subtitleLink}}
+		{{/subtitle}}
+	</div>
+
+  <div class="viewHead-actions row row-item row-item--shrink row-item--alignMiddle">
+    {{#buttons}}
+      <a on-click="action" data-action="{{action}}" intro="{{#intro}}{{intro}}{{/intro}}{{^intro}}none{{/intro}}" class="row-item row-item--shrink">
+        {{#icon}}
+          <i class="fa fa-{{icon}}" title="{{label}}"></li>
+        {{/icon}}
+        {{^icon}}
+          {{label}}
+        {{/icon}}
+      </a>
+    {{/buttons}}
+
+	<!--
+    {{#search}}
+      <a on-click="openSearch" class="row-item row-item--shrink">
+        <i class="fa fa-{{icon}}{{^icon}}search{{/icon}}" title="{{label}}{{^label}}Search{{/label}}"></li>
+      </a>
+    {{/search}}
+	-->
+
+  </div>
+
+</div>
+
+<!-- SEARCH MODE
+<div class="view-head viewHead--search">
+	<div class="bounds inverted"><div class="ffbox">
+		<div class="ffbox-fix viewHead-back" on-click="closeSearch">
+			<i class="fa fa-arrow-left"></i>
+		</div>
+		<div class="ffbox-flex">
+			<form on-submit="searchSubmit"><input type="search" class="search" placeholder="{{search.label}}{{^search.label}}Search{{/search.label}}" value="{{value}}" on-keyup="searchKeyUp" /></form>
+		</div>
+	</div></div>
+</div>
+-->

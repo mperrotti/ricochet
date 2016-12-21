@@ -4,8 +4,10 @@
 *.swo
 *.css.map
 *.lock
+htaccess_old
 __originalImgs/
 perch/
 bower_components/
 node_modules/
+__OLD-SITE/
 !README*

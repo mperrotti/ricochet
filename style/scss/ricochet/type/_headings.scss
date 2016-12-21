@@ -72,7 +72,7 @@ h3, h4, h5, h6 {
 
 %heading--borderedBtm,
 .heading--borderedBtm {
-	padding-bottom: $space-half;
+	padding-bottom: $space;
 	position: relative;
 	&:after {
 		background: $C_accent;

@@ -14,8 +14,6 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
 	<meta name="mobile-web-app-capable" content="yes" />
 
-	<!--<script src="scripts/wufoo.js"></script>-->
-
 </head>
 <!--[if lte IE 9]><body class="ieRoot_lt_IE10"><![endif]-->
 <!--[if gt IE 9]><body><![endif]-->
@@ -53,7 +51,8 @@
 					</div>
 
 					<div class="chunk">
-						<a href="#requestAppt" class="button button--primary button--fullWidth wrap--singleLine">Request an Appointment</a>
+						<a href="#requestAppt" class="button button--primary button--fullWidth wrap--singleLine" id="requestApptBtn">Request an Appointment</a>
+						<a href="https://salonricochet.snapcerts.com/purchase.asp" class="link">Buy a gift certificate</a>
 					</div>
 				</div>
 			</div>
@@ -267,6 +266,13 @@
 								</li>
 								<li>
 									<div class="chunk">
+										<span class="leaderList-key">Heat Cure</span>
+										<span class="leaderList-value">$35</span>
+									</div>
+								</li>
+								<li>
+								<li>
+									<div class="chunk">
 										<span class="leaderList-key">Hair Detox</span>
 										<span class="leaderList-value">$50</span>
 									</div>
@@ -462,7 +468,7 @@
 					<figcaption>
 						<div class="chunk">
 							<header class="heading--borderedBtm">
-								<h3>Ashley Tancredi</h3>
+								<h3>Ashley Kelly</h3>
 								<p class="text--secondary">Stylist</p>
 								<p class="text--secondary">Licensed since 2013</p>
 							</header>
@@ -521,70 +527,7 @@
 	<div class="modal-inner bounds">
 		<div class="modal-content">
 
-			<form id="form1" name="form1" class="wufoo topLabel page" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate
-      action="https://salonricochet.wufoo.com/forms/z1ij3xea0184fc2/#public">
-
-				<header id="header">
-					<h2 class="heading--borderedBtm chunk">Request an appointment</h2>
-				</header>
-
-				<ul class="list list--form">
-					<li id="foli1" class="notranslate"><div class="chunk">
-						<label class="desc" id="title1" for="Field1">Name</label>
-						<input id="Field1" name="Field1" type="text" class="field text medium" value="" maxlength="255" tabindex="1" onkeyup=""/>
-					</div></li>
-
-					<li id="foli2" class="notranslate"><div class="chunk">
-						<label class="desc" id="title2" for="Field2">Stylist Preference</label>
-						<select id="Field2" name="Field2" class="field select medium" tabindex="2">
-							<option value="No preference" selected="selected">No preference</option>
-							<option value="Kurt Darhower">Kurt Darhower</option>
-							<option value="Lana Gillman">Lana Gillman</option>
-							<option value="Beth Stevcic">Beth Stevcic</option>
-							<option value="Mary Roman Davis">Mary Roman Davis</option>
-							<option value="Ashley Tancredi">Ashley Tancredi</option>
-						</select>
-					</div></li>
-
-					<li id="foli3" class="notranslate"><div class="chunk">
-						<label class="desc" id="title3" for="Field3">When are you available? <span class="text--tertiary">(optional)</span></label>
-						<input id="Field3" name="Field3" type="text" class="field text medium" value="" maxlength="255" tabindex="3" onkeyup=""/>
-					</div></li>
-
-					<li id="foli4" class="notranslate">
-						<p class="text--small text--secondary text--bold">How can we reach you? <span class="text--tertiary">(fill at least one)</span></p>
-
-						<div class="chunk row">
-							<div class="row-item row-item--shrink valign--middle"><label id="title6" for="Field6">
-								<object type="image/svg+xml" data="style/img/mobile.svg" class="icon icon_mobile icon--s">
-									<img src="style/img/mobile.png" class="icon icon--s" alt="Mobile Icon" />
-								</object>
-							</label></div>
-							<div class="row-item">
-								<input id="Field10" class="field text medium" name="Field10" tabindex="4" type="tel" maxlength="255" value="" placeholder="Phone Number" /></div>
-						</div>
-						<div class="chunk row">
-							<div class="row-item row-item--shrink valign--middle"><label id="title4" for="Field4">
-								<object type="image/svg+xml" data="style/img/mail.svg" class="icon icon_mail icon--s">
-									<img src="style/img/mail.png" class="icon icon--s" alt="Mail Icon" />
-								</object>
-							</label></div>
-							<div class="row-item"><input name="Field4" type="email" spellcheck="false" value="" maxlength="255" tabindex="5" placeholder="Email Address"></div>
-						</div>
-					</li>
-
-					<li class="display--none">
-						<label for="comment">Do Not Fill This Out</label>
-						<textarea name="comment" id="comment" rows="1" cols="1"></textarea>
-						<input type="hidden" id="idstamp" name="idstamp" value="ITY3zdeIPnWyJAS7tPipzHRJ3Ia7U4h/wPyHfrXPqn0=" />
-					</li>
-
-				</ul>
-				<div class="chunk align--center">
-					<input id="saveForm" name="saveForm" class="button button--fullWidth button--primary submit" type="submit" value="Submit" />
-					<a href="#!" class="link">Cancel</a>
-				</div>
-			</form>
+			<script type="text/javascript">daysmart_acc="2a966800-5ccd-40ec-97a6-2a022e9e5bfd"; daysmart_iframe_width='auto'; daysmart_iframe_height=300;</script><script type="text/javascript" src="http://plugin.mysalononline.com/Scripts/external/bookingplugin.js"></script>
 
 			<div class="chunk">
 				<p class="align--center">You can also contact us at <a href="tel:+12155453970">(215) 545-3970</a></p>
@@ -608,6 +551,12 @@
 				</li>
 				<li>
 					<a href="https://instagram.com/salon_ricochet/" title="Instagram" class="bgIcon bgIcon--instagram">Instagram</a>
+				</li>
+				<li>
+					<a href="https://foursquare.com/salonricochet" title="Foursquare" class="bgIcon bgIcon--foursquare">Foursquare</a>
+				</li>
+				<li>
+					<a href="https://salonricochet.tumblr.com/" title="Tumblr" class="bgIcon bgIcon--tumblr">Tumblr</a>
 				</li>
 			</ul>
 		</div>
@@ -661,6 +610,13 @@
 		grabCursor: true,
 		freeMode: true
 	});
+
+	//
+	// Hack to make the SalonIris booking flow render at the correct height
+	// Needs to be fixed properly on SalonIris' side
+	//
+	var requestApptBtn = document.getElementById('requestApptBtn');
+	requestApptBtn.addEventListener("click", function(){document.getElementById('externalBookingPlugin').style.height = '';}, false);
 
 </script>
 

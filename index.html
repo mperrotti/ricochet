@@ -306,40 +306,13 @@
 
 	<div class="stripe" id="our-work">
 			<header class="chunk align--center">
-				<h2 class="heading--borderedBtm">Our Work</h2>
+				<h2 class="heading--borderedBtm">From Instagram</h2>
 			</header>
 		<div class="swiper-container">
-			<ul class="swiper-wrapper">
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/1.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/2.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/3.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/4.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/5.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/6.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/7.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/8.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/9.jpg');"></div>
-				</li>
-				<li class="swiper-slide">
-					<div class="media--xl keepAspect" style="background-image: url('img/ourWork/10.jpg');"></div>
-				</li>
+			<ul class="swiper-wrapper" id="instafeed">
+
+				<!-- Instagram feed loads here -->
+
 			</ul>
 		</div>
 	</div>
@@ -601,15 +574,24 @@
 	<script type="text/javascript" src="js/build/scripts.min.js"></script>
 
 <script type="text/javascript">
-	var mySwiper = new Swiper('.swiper-container', {
-		mousewheelControl: true,
-		mousewheelForceToAxis: true,
-		slidesPerView: 'auto',
-		speed: 250,
-		spaceBetween: 16,
-		grabCursor: true,
-		freeMode: true
+	var userFeed = new Instafeed({
+		get: 'user',
+		userId: '1641657197',
+		accessToken: '1641657197.bf7c209.1a895bd2b6554448bcb2e19acad866f2',
+		template: '<li class="swiper-slide"><a href="{{link}}" class="display--block media--xl keepAspect" style="background-image: url({{image}}); background-size: cover;"></a></li>',
+		after: function(){
+			var mySwiper = new Swiper('.swiper-container', {
+				mousewheelControl: true,
+				mousewheelForceToAxis: true,
+				slidesPerView: 'auto',
+				speed: 250,
+				spaceBetween: 16,
+				grabCursor: true,
+				freeMode: true
+			});
+		}
 	});
+	userFeed.run();
 
 	//
 	// Hack to make the SalonIris booking flow render at the correct height

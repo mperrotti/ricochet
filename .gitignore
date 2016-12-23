@@ -3,8 +3,10 @@
 *.swp
 *.swo
 *.css.map
+*.js.map
 *.lock
 htaccess_old
+js/build/
 __originalImgs/
 perch/
 bower_components/

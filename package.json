@@ -1,6 +1,6 @@
 {
-  "name": "org-info",
-  "version": "0.1.0",
+  "name": "Salon Ricochet",
+  "version": "1.0.0",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.5.0",

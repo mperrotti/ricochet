@@ -67,6 +67,14 @@
   background-image: url('img/instagram.svg');
 }
 
+.bgIcon--foursquare {
+  background-image: url('img/foursquare.svg');
+}
+
+.bgIcon--tumblr {
+  background-image: url('img/tumblr.svg');
+}
+
 // ------------------
 // PNG fallbacks
 // ------------------
@@ -96,4 +104,13 @@
   .bgIcon--instagram {
     background-image: url('img/instagram.png');
   }
+
+.bgIcon--foursquare {
+  background-image: url('img/foursquare.svg');
+}
+
+.bgIcon--tumblr {
+  background-image: url('img/tumblr.svg');
+}
+
 }

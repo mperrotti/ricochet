@@ -43,3 +43,19 @@
 	}
 
 }
+
+.roundCorners {
+	border-radius: 4px;
+}
+
+.photoHero-photo .link {
+	color: white;
+
+  @include atMediaUp(medium) {
+		color: $C_link;
+	}
+}
+
+.touchHeight {
+	min-height: 40px;
+}

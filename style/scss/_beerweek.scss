@@ -1,0 +1,15 @@
+.beerweekContainer {
+	min-height: 100vh;
+}
+
+.safeMeasure {
+	margin: 0 auto;
+	max-width: 40em;
+
+  @include atMediaUp(medium) {
+		font-size: 18px;
+	}
+  @include atMediaUp(large) {
+		font-size: 20px;
+	}
+}

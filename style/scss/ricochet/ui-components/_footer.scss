@@ -4,6 +4,6 @@
   padding-top: 0;
 }
 
-.footerNav a {
+.footerNav a:not(.button) {
   color: $C_accent;
 }

@@ -22,8 +22,8 @@ module.exports = function(grunt) {
 			separated_js: {
 				files: {
 					'js/build/scripts.min.js': [
-						// 'bower_components/instafeed.js/instafeed.js',
-						// 'thirdparty/swiper/dist/js/swiper.jquery.min.js',
+						'bower_components/instafeed.js/instafeed.js',
+						'thirdparty/swiper/dist/js/swiper.jquery.min.js',
 						'js/src/*.js'
 					],
 				}

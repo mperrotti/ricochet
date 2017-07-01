@@ -60,6 +60,7 @@
 
 	</header>
 
+	<!--
 	<div class="stripe" id="services-and-products"><div class="bounds">
 		<header class="chunk align--center">
 			<h2 class="heading--borderedBtm">Services and Products</h2>
@@ -69,7 +70,7 @@
 
 		<div class="stack stackCustom--priceList atMedium_stack--spread row--spaceBetween">
 
-			<!-- COLUMN 1 -->
+			// COLUMN 1
 			<div class="stack-item stack-item--shrink">
 				<ul>
 					<li class="chunk">
@@ -194,7 +195,7 @@
 				</ul>
 			</div>
 
-			<!-- COLUMN 2 -->
+			// COLUMN 2
 			<div class="stack-item stack-item--shrink">
 				<ul>
 					<li class="chunk">
@@ -303,7 +304,7 @@
 			</div>
 
 		</div>
-	</div></div>
+	</div></div>-->
 
 	<div class="stripe" id="the-salon"><div class="bounds">
 		<header class="chunk align--center">
@@ -343,6 +344,19 @@
 		</div>
 	</div></div>
 
+	<div class="stripe stripe--extraPadding" id="our-work">
+			<header class="chunk align--center">
+				<h2 class="heading--borderedBtm">From Instagram</h2>
+			</header>
+		<div class="swiper-container">
+			<ul class="swiper-wrapper" id="instafeed">
+
+				<!-- Instagram feed loads here -->
+
+			</ul>
+		</div>
+	</div>
+
 <section class="modal--show" id="requestAppt" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
 	<div class="modal-inner bounds">
 		<div class="modal-content">
@@ -374,9 +388,6 @@
 				<li>
 					<a href="https://foursquare.com/salonricochet" title="Foursquare" class="bgIcon bgIcon--foursquare">Foursquare</a>
 				</li>
-				<li>
-					<a href="https://salonricochet.tumblr.com/" title="Tumblr" class="bgIcon bgIcon--tumblr">Tumblr</a>
-				</li>
 			</ul>
 		</div>
 
@@ -384,7 +395,7 @@
 			<div class="stack-item border--top atMedium_border--none">
 				<div class="chunk">
 					<h3>Hours</h3>
-					<p>Tue–Fri 10am-7pm</p>
+					<p>Tue–Fri 11am-7pm</p>
 					<p>Sat 10am-4pm</p>
 				</div>
 			</div>
@@ -419,24 +430,24 @@
 	<script type="text/javascript" src="js/build/scripts.min.js"></script>
 
 <script type="text/javascript">
-	// var userFeed = new Instafeed({
-	// 	get: 'user',
-	// 	userId: '1641657197',
-	// 	accessToken: '1641657197.bf7c209.1a895bd2b6554448bcb2e19acad866f2',
-	// 	template: '<li class="swiper-slide"><a href="{{link}}" class="display--block media--xl keepAspect" style="background-image: url({{image}}); background-size: cover;"></a></li>',
-	// 	after: function(){
-	// 		var mySwiper = new Swiper('.swiper-container', {
-	// 			mousewheelControl: true,
-	// 			mousewheelForceToAxis: true,
-	// 			slidesPerView: 'auto',
-	// 			speed: 250,
-	// 			spaceBetween: 16,
-	// 			grabCursor: true,
-	// 			freeMode: true
-	// 		});
-	// 	}
-	// });
-	// userFeed.run();
+	var userFeed = new Instafeed({
+		get: 'user',
+		userId: '1066824045',
+		accessToken: '1066824045.1677ed0.1d7b7689099449beb60c76c681ade37c',
+		template: '<li class="swiper-slide"><a href="{{link}}" class="display--block media--xl keepAspect" style="background-image: url({{image}}); background-size: cover;"></a></li>',
+		after: function(){
+			var mySwiper = new Swiper('.swiper-container', {
+				mousewheelControl: true,
+				mousewheelForceToAxis: true,
+				slidesPerView: 'auto',
+				speed: 250,
+				spaceBetween: 16,
+				grabCursor: true,
+				freeMode: true
+			});
+		}
+	});
+	userFeed.run();
 
 	//
 	// Hack to make the SalonIris booking flow render at the correct height
